@@ -6,7 +6,8 @@ username: String,
 userId: String,
 message: String,
 date: String,
-rating: String
+rating: String,
+ratingz: String,
 })
 
 const user = mongoose.model('User', userSchema,)

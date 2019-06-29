@@ -110,8 +110,6 @@ export default class GetReviews extends Component {
                   <p>Message: {message}</p>
                   <p>Date: {date}</p>
                   <p>Rating: {rating}</p>
-
-
                   <hr />
                 </div>
               );
@@ -119,17 +117,10 @@ export default class GetReviews extends Component {
           ) : (
             <p>Loading...</p>
           )}
-
-
-
         </div>
       </React.Fragment>
-
-
-
         
       </div>
     )
   }
 }
-
