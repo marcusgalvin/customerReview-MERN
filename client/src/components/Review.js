@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import StarRatingComponent from 'react-star-rating-component';
+import Test from './Test';
 
 
  class Review extends Component {
@@ -9,6 +10,7 @@ import StarRatingComponent from 'react-star-rating-component';
     super();
  
     this.state = {
+      name: "Test",
       rating: 2
     };
   }
@@ -20,7 +22,7 @@ genStar = () => {
 
   onStarClick(nextValue, prevValue, name) {
     this.setState({
-
+      name: name,
       rating: nextValue
 
     });
