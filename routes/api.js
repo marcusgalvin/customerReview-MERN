@@ -11,15 +11,16 @@ router.post('/', function(req, res){   //res.send sends info from server to brow
     const userId = req.body.userId;
     const message = req.body.message;
     const date = req.body.date;
-    const rating = req.body.rating;
+    const name = req.body.name;
+    const starCount = req.body.starCount;
 
     const data = {
         username: userName,
         userId: userId,
         message: message,
         date: date,
-        rating,
-
+        name: name,
+        starCount, starCount,
     }
     console.log("data", data);
 
@@ -29,6 +30,25 @@ router.post('/', function(req, res){   //res.send sends info from server to brow
     .catch (err => console.log(err)) //if error console log error
     
 })
+
+
+// router.post('/', function(req,res){
+
+// const postRatings = req.body.postRatings;
+// const name = req.body.name;
+
+// const datas = {
+//     postRatings: postRatings,
+//     name: name,
+// }
+// console.log("datas", datas);
+
+// const starUser = new StarUser(datas)
+// starUser.save()
+// .then(() => res.send(datas))
+// .catch (err => console.log(err))
+
+// })
 
 
 router.get("/getallusers", function(req, res){
@@ -41,18 +61,18 @@ User.find()
 })
 
 
-router.get("/showprofile/:username", function(req, res){    //:username is a parameter and a variable
-   const user = req.params.username    //get username from paramater, inside the URL, store in const 'user'
-    console.log(user)
+// router.get("/showprofile/:username", function(req, res){    //:username is a parameter and a variable
+//    const user = req.params.username    //get username from paramater, inside the URL, store in const 'user'
+//     console.log(user)
 
-    User.find({username:user}) //username is the key value is user
-        .then(result => {
-            console.log("Showing", user, "profile:", result)
-            res.send(result)
-        }).catch(err => {
-            console.log(err)
-        })
+//     User.find({username:user}) //username is the key value is user
+//         .then(result => {
+//             console.log("Showing", user, "profile:", result)
+//             res.send(result)
+//         }).catch(err => {
+//             console.log(err)
+//         })
 
-})
+// })
 
 module.exports = router;

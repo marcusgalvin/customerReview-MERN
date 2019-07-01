@@ -1,49 +1,16 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import StarRatingComponent from 'react-star-rating-component';
+
 
 export default class GetReviews extends Component {
 
-
-// constructor() {
-//     super();
-//     this.state = {
-//         allUsers: [],
-//     };
-// }
-
-
-
-// state = { 
-//   allUsers: [ ]
-//     // userName: " ",
-//     // message: " ",
-//     // artist: " ", 
-//     // album: " ",
-//     // productType: " " 
-// }
-
-
-    // componentDidMount() {
-    //     axios.get('/api/getallusers')
-    //   .then(response => response.data.map(user => ({
-    //       name:`${user.username}`,
-    //       date:`${user.date}`,
-    //       message:`${user.message}`,
-    //       rating:`${user.rating}`,
-    //       userId:`${user.userId}`
-
-    //   }))
-    //   ).then(users => {
-    //       this.setState({
-    //           users,
-    //       });
-    //   }) 
-    // }
+  
       
 
     state = {
         allData: [],
-        isLoading: true,
+        // isLoading: true,
         errors: null
       };
 
@@ -65,7 +32,7 @@ export default class GetReviews extends Component {
         
         allData ,
 
-       isLoading: false
+      //  isLoading: false
 
     
     });
@@ -80,10 +47,14 @@ export default class GetReviews extends Component {
 
 
 
+
+
+
+
   
   render() {
 
-    const { isLoading, allData } = this.state;
+    const { isLoading, allData, } = this.state;
 
     // console.log(this.state)
     // var allDatas = this.state
@@ -92,25 +63,37 @@ export default class GetReviews extends Component {
     return (
       <div>
 
-
-      
-
-
-
       <React.Fragment>
         <h2>List of Reviews</h2>
         <div>
           {!isLoading ? (
             allData.map(post => {
-              const { _id, username, userId, message, date, rating } = post;
+              const { _id, username, starCount, message, date, rating } = post;
               return (
                 <div key={_id}>
                   <h2>Name: {username}</h2>
-                  <p>Mentor's Name: {userId}</p>
+                  {/* <p>Mentor's Name: {userId}</p> */}
                   <p>Message: {message}</p>
                   <p>Date: {date}</p>
-                  <p>Rating: {rating}</p>
-                  <hr />
+                  <p>Rating: {starCount}</p>
+                  
+                 
+
+                  <StarRatingComponent 
+                name="rate1" 
+                starCount={5}
+                value={rating}
+
+ 
+              />
+
+
+              <hr />
+
+
+
+
+
                 </div>
               );
             })

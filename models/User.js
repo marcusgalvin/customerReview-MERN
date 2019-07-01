@@ -6,10 +6,29 @@ username: String,
 userId: String,
 message: String,
 date: String,
-rating: String,
-ratingz: String,
+name: String,
+starCount: String
+
 })
+
+
+
+
+
+// const starSchema = new Schema({
+    
+//     postRatings: String,
+//     name: String
+
+// })
+
+// const starUser = mongoose.model('StarUser', starSchema,)
 
 const user = mongoose.model('User', userSchema,)
 
+
+
+
+
+// module.exports = starUser;
 module.exports = user;

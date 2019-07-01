@@ -16,9 +16,6 @@ import Test from './Test';
   }
  
 
-genStar = () => {
-  
-}
 
   onStarClick(nextValue, prevValue, name) {
     this.setState({
@@ -26,54 +23,26 @@ genStar = () => {
       rating: nextValue
 
     });
-    console.log('rating:', nextValue)
-    console.log('name:', name)
+    // console.log('rating:', nextValue)
+    // console.log('name:', name)
+    // console.log(this.state)
+
 
 
 
     const datas = {
-      rate: nextValue,
+      starCount: nextValue,
       name : name
     }
+    console.log(datas)
 
     axios.post("/api", datas)
 
-    .then(res => 
-      console.log(datas))
-
-      var ratingz = 
-
-"rating:" + nextValue +
-
-"name:" + name
-  
-}
-
-// axios.get("/api", datas)
-// .then
-// getStars  = ()  => {
-
-//   axios.get('/api', function(req, res){
-//     console.log("I received a GET request")
-    
-//     console.log("Returned data");
-// });
+    .then(res => console.log(datas))
+      
+  }
 
 
-// }
-
-
-
-
-
-state = { 
-    userName: " ",
-    message: " ",
-    rate: " ",
-    date: " ", 
-    // album: " ",
-    // productType: " " 
-}
 
 registerUser = () => {
     // console.log(this.state);
@@ -83,22 +52,19 @@ registerUser = () => {
     message: this.state.message,
     rate: this.state.rating,
     date: this.state.date,
-    // album: this.state.album,
-    // productType: this.state.productType
+    name: this.state.name,
+    starCount: this.state.rating,
+   
   }
 
   axios.post("/api", data)
     .then(res => console.log(res.data))
 
-    const newUser = "Name:" + this.state.userName + " | " + "Message: " +
-    this.state.message + 
-    this.state.date +
-    this.state.rating 
-    // this.state.album +
-    // this.state.productType 
-    // this.props.setData(newUser);
+console.log(this.state)
 
-}
+  }
+
+
 
 
  render() {
@@ -157,7 +123,6 @@ registerUser = () => {
                 starCount={5}
                 value={rating}
                 onStarClick={this.onStarClick.bind(this)}
-                onStarClick1 = { e => this.setState({rating: e.target.value })}
               />
 
               <br />
